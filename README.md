@@ -16,7 +16,7 @@ Let's summarize what we'll do:
 1. Take a look at the [main idea](#the-main-idea) and enable your ["dev hub" organization](#enable-your-dev-hub-organization) if needed;
 1. [Create your Scratch organization](#create-your-scratch-organization) in [windows environment](#windows-environment) or [not](#no-windows-environment);
 1. [Enable the new commerce app](#refreshed-commerce-app);
-1. [Do the CMS configuration](#-cms-configuration);
+1. [Do the CMS configuration](#cms-configuration);
 1. [Relate the CMS images with the products](#product-and-image-relationship);
 1. Activate the [User Access Policies](#user-access-policies);
 1. Finish the [guest user access](#guest-user-access) final steps;
