@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>ShowAllFields</fullName>
+    <columns>MasterLabel</columns>
+    <columns>DeveloperName</columns>
+    <columns>isActive__c</columns>
+    <columns>ShippingType__c</columns>
+    <columns>AdditionalDescription__c</columns>
+    <columns>AdditionalTitle__c</columns>
+    <columns>ShippingChargeValue__c</columns>
+    <columns>LabelToShow__c</columns>
+    <filterScope>Everything</filterScope>
+    <label>Show All Fields</label>
+</ListView>

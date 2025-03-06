@@ -1,0 +1,12 @@
+{
+    "records": [
+        {
+            "attributes": {
+                "type": "Pricebook2",
+                "referenceId": "Pricebook2Ref4"
+            },
+            "IsActive": true,
+            "Name": "Price Book (Script creation)"
+        }
+    ]
+}

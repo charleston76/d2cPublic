@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<OrderManagementSettings xmlns="http://soap.sforce.com/2006/04/metadata">
+    <enableB2CIntegration>false</enableB2CIntegration>
+    <enableB2CSelfService>false</enableB2CSelfService>
+    <enableDuplicateManagement>false</enableDuplicateManagement>
+    <enableIndividualOrderItemTaxAdjustments>false</enableIndividualOrderItemTaxAdjustments>
+    <enableOMAutomation>false</enableOMAutomation>
+    <enableOrderManagement>true</enableOrderManagement>
+    <enablePersonAccountsForShoppers>false</enablePersonAccountsForShoppers>
+    <initOMAutomation>false</initOMAutomation>
+</OrderManagementSettings>

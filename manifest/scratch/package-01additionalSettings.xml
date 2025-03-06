@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<Package xmlns="http://soap.sforce.com/2006/04/metadata">
+	<types>
+		<members>Commerce</members>
+		<members>Communities</members>
+		<members>ExperienceBundle</members>
+		<!-- This Inventory thing if causing issues on developer org deployment
+		<members>Inventory</members>
+		-->
+		<members>Order</members>
+		<!-- This order management thing if causing issues on scratch org deployment
+		<members>OrderManagement</members>
+		-->
+		<members>UserManagement</members>
+		<members>Security</members>
+		<name>Settings</name>
+	</types>
+	<types>
+		<members>AuthorizeNet</members>
+		<members>GenericNamedCredential</members>
+		<name>NamedCredential</name>
+	</types>
+	<version>62.0</version>
+</Package>

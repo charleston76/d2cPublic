@@ -1,0 +1,128 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Acc_UsoCFDI__c</fullName>
+    <label>Uso de CFDI</label>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <type>Picklist</type>
+    <valueSet>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>G01</fullName>
+                <default>false</default>
+                <label>G01 Adquisición de mercancías</label>
+            </value>
+            <value>
+                <fullName>G02</fullName>
+                <default>false</default>
+                <label>G02 Devoluciones, descuentos o bonificaciones</label>
+            </value>
+            <value>
+                <fullName>G03</fullName>
+                <default>false</default>
+                <label>G03 Gastos en general</label>
+            </value>
+            <value>
+                <fullName>I01</fullName>
+                <default>false</default>
+                <label>I01 Construcciones</label>
+            </value>
+            <value>
+                <fullName>I02</fullName>
+                <default>false</default>
+                <label>I02 Mobilario y equipo de oficina por inversiones</label>
+            </value>
+            <value>
+                <fullName>I03</fullName>
+                <default>false</default>
+                <label>I03 Equipo de transporte</label>
+            </value>
+            <value>
+                <fullName>I04</fullName>
+                <default>false</default>
+                <label>I04 Equipo de computo y accesorios</label>
+            </value>
+            <value>
+                <fullName>I05</fullName>
+                <default>false</default>
+                <label>I05 Dados, troqueles, moldes, matrices y herramental</label>
+            </value>
+            <value>
+                <fullName>I06</fullName>
+                <default>false</default>
+                <label>I06 Comunicaciones telefónicas</label>
+            </value>
+            <value>
+                <fullName>I07</fullName>
+                <default>false</default>
+                <label>I07 Comunicaciones satelitales</label>
+            </value>
+            <value>
+                <fullName>I08</fullName>
+                <default>false</default>
+                <label>I08 Otra maquinaria y equipo</label>
+            </value>
+            <value>
+                <fullName>D01</fullName>
+                <default>false</default>
+                <label>D01 Honorarios médicos, dentales y gastos hospitalarios.</label>
+            </value>
+            <value>
+                <fullName>D02</fullName>
+                <default>false</default>
+                <label>D02 Gastos médicos por incapacidad o discapacidad</label>
+            </value>
+            <value>
+                <fullName>D03</fullName>
+                <default>false</default>
+                <label>D03 Gastos funerales.</label>
+            </value>
+            <value>
+                <fullName>D04</fullName>
+                <default>false</default>
+                <label>D04 Donativos.</label>
+            </value>
+            <value>
+                <fullName>D05</fullName>
+                <default>false</default>
+                <label>D05 Intereses reales efectivamente pagados por créditos hipotecarios.</label>
+            </value>
+            <value>
+                <fullName>D06</fullName>
+                <default>false</default>
+                <label>D06 Aportaciones voluntarias al SAR.</label>
+            </value>
+            <value>
+                <fullName>D07</fullName>
+                <default>false</default>
+                <label>D07 Primas por seguros de gastos médicos.</label>
+            </value>
+            <value>
+                <fullName>D08</fullName>
+                <default>false</default>
+                <label>D08 Gastos de transportación escolar obligatoria.</label>
+            </value>
+            <value>
+                <fullName>D09</fullName>
+                <default>false</default>
+                <label>D09 Depósitos en cuentas para el ahorro, primas que tengan como base planes de pensiones.</label>
+            </value>
+            <value>
+                <fullName>D10</fullName>
+                <default>false</default>
+                <label>D10 Pagos por servicios educativos (colegiaturas)</label>
+            </value>
+            <value>
+                <fullName>P01</fullName>
+                <default>false</default>
+                <label>P01 Por definir</label>
+            </value>
+            <value>
+                <fullName>S01</fullName>
+                <default>false</default>
+                <label>S01</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

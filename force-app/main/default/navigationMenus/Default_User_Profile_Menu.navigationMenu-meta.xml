@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<NavigationMenu xmlns="http://soap.sforce.com/2006/04/metadata">
+    <container>d2cLightning</container>
+    <containerType>Network</containerType>
+    <label>Default User Profile Menu</label>
+    <navigationMenuItem>
+        <label>My Account</label>
+        <position>1</position>
+        <publiclyAvailable>false</publiclyAvailable>
+        <target>/myprofile</target>
+        <type>InternalLink</type>
+    </navigationMenuItem>
+    <navigationMenuItem>
+        <label>Orders</label>
+        <position>2</position>
+        <publiclyAvailable>false</publiclyAvailable>
+        <target>/OrderSummary/OrderSummary/Default</target>
+        <type>InternalLink</type>
+    </navigationMenuItem>
+    <navigationMenuItem>
+        <label>My List</label>
+        <position>3</position>
+        <publiclyAvailable>false</publiclyAvailable>
+        <target>/mylists</target>
+        <type>InternalLink</type>
+    </navigationMenuItem>
+</NavigationMenu>
