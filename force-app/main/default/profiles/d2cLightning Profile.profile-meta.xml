@@ -25,10 +25,6 @@
         <apexClass>GeneralCartOrchestrator</apexClass>
         <enabled>true</enabled>
     </classAccesses>
-    <classAccesses>
-        <apexClass>MercadoPagoWebhook</apexClass>
-        <enabled>true</enabled>
-    </classAccesses>
 	<custom>true</custom>
 	<fieldPermissions>
 		<editable>false</editable>

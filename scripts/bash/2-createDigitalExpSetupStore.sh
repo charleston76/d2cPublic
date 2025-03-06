@@ -1,5 +1,5 @@
-# ./scripts/bash/2-createDigitalExpSetupStore.sh tmpScrach d2cLightning D2C
-# ./scripts/bash/2-createDigitalExpSetupStore.sh tmpScrach d2cLightning B2B
+# ./scripts/bash/2-createDigitalExpSetupStore.sh tmpScrach d2cLightning D2C No
+# ./scripts/bash/2-createDigitalExpSetupStore.sh tmpScrach d2cLightning B2B No
 
 #!/bin/bash
 # Use this command to create a new store.

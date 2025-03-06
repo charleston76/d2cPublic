@@ -53,7 +53,6 @@
     </networkAuthApiSettings>
     <networkMemberGroups>
         <profile>admin</profile>
-        <profile>buyer profile</profile>
         <profile>shopper profile</profile>
     </networkMemberGroups>
     <networkPageOverrides>

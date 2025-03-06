@@ -94,11 +94,7 @@ cat package-retrieve.xml
 
 echo "Retrieving the store metadata and extracting it from the zip file."
 # project retrieve start
-# sfdx force:mdapi:retrieve -r experience-bundle-package -k  package-retrieve.xml
 sf project retrieve start --target-metadata-dir experience-bundle-package --manifest package-retrieve.xml
-# --zip-file-name
-# This would be the new way to generate the package, but is giving a weird error :-(
-# sf project retrieve start --package-name package-retrieve.xml --target-metadata-dir experience-bundle-package
 
 unzip -d experience-bundle-package experience-bundle-package/unpackaged.zip
 
@@ -116,21 +112,16 @@ echo "1. Setting up your integrations."
 
 echo "You can view the results of the mapping in the Store Integrations page at /lightning/page/storeDetail?lightning__webStoreId=$storeId&storeDetail__selectedTab=store_integrations"
 
-# This adding group member needs to be evalueted better, since it is not a scratch org
-# due that I'm removing it
-# Add the Customer Community Plus Profile clone to the list of members for the store
-#    + add value 'Live' to field 'status' to activate community
-echo "3. Updating members list and activating community."
+echo "2. Updating members list and activating community."
 networkMetaFile="experience-bundle-package/unpackaged/networks/$communityNetworkName".network
 tmpfile=$(mktemp)
-# sed "s/<networkMemberGroups>/<networkMemberGroups><profile>Buyer Profile<\/profile>/g;s/<status>.*/<status>Live<\/status>/g" $networkMetaFile > $tmpfile
-sed "s/<networkMemberGroups>/<networkMemberGroups><profile>Buyer Profile<\/profile><profile>Shopper Profile<\/profile>/g;s/<status>.*/<status>Live<\/status>/g" $networkMetaFile > $tmpfile
+sed "s/<networkMemberGroups>/<networkMemberGroups><profile>Shopper Profile<\/profile>/g;s/<status>.*/<status>Live<\/status>/g" $networkMetaFile > $tmpfile
 
 mv -f $tmpfile $networkMetaFile
 
 # Import Products and related data
 # Get new Buyer Group Name
-echo "4. Importing products and the other things"
+echo "3. Importing products and the other things"
 buyergroupName=$(bash ./scripts/bash/5-importProductSample.sh $storename | tail -n 1)
 echo_attention "Buyer group name $buyergroupName"
 
@@ -184,128 +175,6 @@ echo_attention "Logged in username $userName ID $userId"
 # Since we have a bash issue running on windows system, I have separeted the update
 sf data update record --sobject User --record-id $userId --values "username='$userName'"
 sf data update record --sobject User --record-id $userId --values "UserRoleId='$newRoleID'"
-
-# Putted on the manifest to deploy there
-# echo_attention "Deploying the profile to create the user"
-# sfdx force:source:deploy -p ./force-app/main/default/profiles/Buyer\ Profile.profile-meta.xml
-
-# Create Buyer User. Go to config/buyer-user-def.json to change name, email and alias.
-echo "6. Creating Buyer User with associated Contact and Account."
-
-echo_attention "Creating a folder to copy json file"
-rm -rf setupB2b
-mkdir setupB2b
-
-# First of all, you need change the file information, and do the importation, that user, and account will be created, in one shot
-# Replace the names there and put with the scratch org and store names
-# Get the Contact user name
-echo "Changing the configuration file information."
-sed -E "s/YOUR_SCRATCH_NAME/$scratchOrgName/g;s/YOUR_STORE_NAME/$storename/g" scripts/json/buyer-user-def.json > setupB2b/tmpBuyerUserDef.json
-createdUsername=`grep -i '"Username":' setupB2b/tmpBuyerUserDef.json|cut -d "\"" -f 4`
-
-echo "Creating the user, contact and account"
-sfdx force:user:create -f setupB2b/tmpBuyerUserDef.json
-
-echo_attention "Assigning the Buyer permission set to the new user $createdUsername"
-
-# sfdx force:user:permset:assign --permsetname <permset_name> --targetusername <admin-user> --onbehalfof <non-admin-user>
-sfdx force:user:permset:assign --permsetname B2BBuyer --targetusername  $userName --onbehalfof $createdUsername
-
-# Update the user information to something more friendly
-# First get the user ID
-# userId=`sf data query --query \ "SELECT Id FROM User WHERE username = '$userName'" -r csv |tail -n +2`
-createNewQuery "SELECT Id FROM User WHERE username = '$createdUsername'"
-createdUserId=`sf data query --file query.txt -r csv |tail -n +2`
-# sfdx force:data:record:update -s User -w "Username='$createdUsername'" -v "FirstName='User ${scratchOrgName}'" 
-# Since we have a bash issue running on windows system, I have separeted the update
-sf data update record --sobject User --record-id $createdUserId --values "Username='$createdUsername'"
-sf data update record --sobject User --record-id $createdUserId --values "FirstName='User $scratchOrgName'"
-
-
-echo "Getting the contactId"
-# contactId=`sf data query --query \ "SELECT ContactId FROM User WHERE Username = '${createdUsername}' ORDER BY CreatedDate Desc LIMIT 1" -r csv |tail -n +2`
-createNewQuery "SELECT ContactId FROM User WHERE Username = '${createdUsername}' ORDER BY CreatedDate Desc LIMIT 1"
-contactId=`sf data query --file query.txt -r csv |tail -n +2`
-
-
-echo_attention "Updating the contact information to the createdUsername $createdUsername ContactId $contactId"
-
-# Update the contact information to something more friendly
-# sfdx force:data:record:update -s Contact -w "Id='$contactId'" -v "FirstName='Contact $scratchOrgName' LastName='$storename' Title='Mr.'" 
-sf data update record --sobject Contact --record-id $contactId --values "FirstName='Contact $scratchOrgName'"
-sf data update record --sobject Contact --record-id $contactId --values "LastName='$storename'"
-sf data update record --sobject Contact --record-id $contactId --values "Title='Mr.'"
-
-echo "Selecting Account ID."
-# accountID=`sf data query --query \ "SELECT AccountId FROM Contact WHERE Id='$contactId' ORDER BY CreatedDate Desc LIMIT 1" -r csv |tail -n +2`
-createNewQuery "SELECT AccountId FROM Contact WHERE Id='$contactId' ORDER BY CreatedDate Desc LIMIT 1"
-accountID=`sf data query --file query.txt -r csv |tail -n +2`
-
-
-echo_attention "ContactId $contactId related with AccountId $accountID "
-
-# Update the account information to something more friendly
-# sfdx force:data:record:update -s Account -w "Id='$accountID'" -v "Name='Account ${scratchOrgName} ${storename}' isBuyerEnabled__c=true" 
-sf data update record --sobject Account --record-id $accountID --values "Name='Account $scratchOrgName $storename'"
-# Not using this custom field from now
-# sf data update record --sobject Account --record-id $accountID --values "isBuyerEnabled__c=true"
-
-
-buyerAccountName="$storename Buyer Account"
-echo "Buyer account name defined as $buyerAccountName" 
-
-echo "Making the Account a Buyer Account."
-# sfdx force:data:record:create -s BuyerAccount -v "BuyerId='$accountID' Name='$buyerAccountName' isActive=true"
-objectName="BuyerAccount"
-attributes="\"attributes\": { \"type\": \"$objectName\", \"referenceId\": \"${objectName}Ref1\"},"
-fieldValues="\"BuyerId\":\"$accountID\", \"Name\":\"$buyerAccountName\", \"isActive\":\"true\""
-createJsonFile "$attributes $fieldValues"
-sf data import tree --files Data.json
-
-
-# Assign Account to Buyer Group
-echo "Assigning Buyer Account to Buyer Group."
-# buyergroupID=`sf data query --query \ "SELECT Id FROM BuyerGroup WHERE Name = '${buyergroupName}'" -r csv |tail -n +2`
-createNewQuery "SELECT Id FROM BuyerGroup WHERE Name = '${buyergroupName}'"
-buyergroupID=`sf data query --file query.txt -r csv |tail -n +2`
-
-# sfdx force:data:record:create -s BuyerGroupMember -v "BuyerGroupId='$buyergroupID' BuyerId='$accountID'"
-objectName="BuyerGroupMember"
-attributes="\"attributes\": { \"type\": \"$objectName\", \"referenceId\": \"${objectName}Ref1\"},"
-fieldValues="\"BuyerGroupId\":\"$buyergroupID\", \"BuyerId\":\"$accountID\""
-createJsonFile "$attributes $fieldValues"
-sf data import tree --files Data.json
-
-
-rm -rf setupB2b
-
-# Add Contact Point Addresses to the buyer account associated with the buyer user.
-# The account will have 2 Shipping and 2 billing addresses associated to it.
-# To view the addresses in the UI you need to add Contact Point Addresses to the related lists for Account
-echo "7. Add Contact Point Addresses to the Buyer Account."
-# existingCPAForBuyerAccount=`sf data query --query \ "SELECT Id FROM ContactPointAddress WHERE ParentId='${accountID}' LIMIT 1" -r csv |tail -n +2`
-createNewQuery "SELECT Id FROM ContactPointAddress WHERE ParentId='${accountID}' LIMIT 1"
-existingCPAForBuyerAccount=`sf data query --file query.txt -r csv |tail -n +2`
-
-if [ -z "$existingCPAForBuyerAccount" ]
-then
-	# sfdx force:data:record:create -s ContactPointAddress -v "AddressType='Shipping' ParentId='$accountID' ActiveFromDate='2020-01-01' ActiveToDate='2040-01-01' City='California' Country='US' IsDefault='true' Name='Default Shipping' PostalCode='99950' Street='333 Seymour Street (Shipping)'"
-	objectName="ContactPointAddress"
-	attributes="\"attributes\": { \"type\": \"$objectName\", \"referenceId\": \"${objectName}Ref1\"},"
-	fieldValues="\"AddressType\":\"Shipping\", \"ParentId\":\"$accountID\", \"ActiveFromDate\":\"2023-01-01\", \"ActiveToDate\":\"2040-01-01\", \"City\":\"California\", \"Country\":\"US\", \"IsDefault\":\"true\", \"Name\":\"Default Shipping\", \"PostalCode\":\"99950\", \"Street\":\"333 Seymour Street (Shipping)\""
-	createJsonFile "$attributes $fieldValues"
-	sf data import tree --files Data.json
-
-	# sfdx force:data:record:create -s ContactPointAddress -v "AddressType='Billing' ParentId='$accountID' ActiveFromDate='2020-01-01' ActiveToDate='2040-01-01' City='California' Country='US' IsDefault='true' Name='Default Billing' PostalCode='99949' Street='333 Seymour Street (Billing)'"
-	fieldValues="\"AddressType\":\"Billing\", \"ParentId\":\"$accountID\", \"ActiveFromDate\":\"2023-01-01\", \"ActiveToDate\":\"2040-01-01\", \"City\":\"California\", \"Country\":\"US\", \"IsDefault\":\"true\", \"Name\":\"Default Billing\", \"PostalCode\":\"99950\", \"Street\":\"333 Seymour Street (Billing)\""
-	createJsonFile "$attributes $fieldValues"
-	sf data import tree --files Data.json
-
-	# sfdx force:data:record:create -s ContactPointAddress -v "AddressType='Shipping' ParentId='$accountID' ActiveFromDate='2020-01-01' ActiveToDate='2040-01-01' City='California' Country='US' IsDefault='false' Name='Non-Default Shipping' PostalCode='99948' Street='415 Mission Street (Shipping)'"
-	# sfdx force:data:record:create -s ContactPointAddress -v "AddressType='Billing' ParentId='$accountID' ActiveFromDate='2020-01-01' ActiveToDate='2040-01-01' City='California' Country='US' IsDefault='false' Name='Non-Default Billing' PostalCode='99957' Street='415 Mission Street (Billing)'"
-else
-	echo "There is already at least 1 Contact Point Address for your Buyer Account ${buyerAccountName}"
-fi
 
 echo "Setup Guest Browsing."
 # storeType=`sf data query --query \ "SELECT Type FROM WebStore WHERE Name = '${communityNetworkName}'" -r csv |tail -n +2`

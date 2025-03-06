@@ -263,12 +263,11 @@ public class GeneralShippingCalculator extends CartExtension.ShippingCartCalcula
 
 
         for(Account rowAccount :  [
-            SELECT Id, Name , Acc_CodigoPoblacion__c, Acc_IdGrupo__r.Name , Acc_IdGrupo__r.Acc_Id_grupo__c
+            SELECT Id, Name 
             FROM Account
             WHERE Id =: accountId
         ]){
-            if (rowAccount?.Acc_CodigoPoblacion__c != null) accountCodeGroup.put('codigoPoblacion', String.valueOf(rowAccount.Acc_CodigoPoblacion__c)) ;
-            if (rowAccount?.Acc_IdGrupo__r?.Acc_Id_grupo__c != null) accountCodeGroup.put('idGrupo', String.valueOf(rowAccount.Acc_IdGrupo__r.Acc_Id_grupo__c)) ;
+
         }
 
         System.debug(CLASS_NAME + ' ' + METHOD_NAME + ' accountCodeGroup ' + accountCodeGroup);

@@ -80,18 +80,6 @@
         <apexClass>SiteRegisterControllerTest</apexClass>
         <enabled>false</enabled>
     </classAccesses>
-    <classAccesses>
-        <apexClass>UtilApplicationException</apexClass>
-        <enabled>false</enabled>
-    </classAccesses>
-    <classAccesses>
-        <apexClass>UtilDatabase</apexClass>
-        <enabled>false</enabled>
-    </classAccesses>
-    <classAccesses>
-        <apexClass>UtilDatabaseHandler</apexClass>
-        <enabled>false</enabled>
-    </classAccesses>
     <custom>true</custom>
     <layoutAssignments>
         <layout>Account-Account Layout</layout>

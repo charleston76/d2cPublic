@@ -274,12 +274,6 @@ echo "5. Creating the shipping product."
 shippingProductCreation
 
 echo "6. Not registering the payment gateway anymore."
-echo "6.a - Bank Transfer."
-register_and_map_credit_card_payment_integration "BankTransferPGProvider" "BankTransferPGateway"
-
-echo "6.b - Mercado Pago."
-register_and_map_credit_card_payment_integration "MercadoPagoPGProvider" "MercadoPagoPGateway"
-
 echo "6.c - Authorize.NEt."
 register_and_map_credit_card_payment_integration "AuthorizeNetAdapter" "AuthorizeNetPGateway"
 
