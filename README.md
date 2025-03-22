@@ -37,40 +37,6 @@ In your workstation, you need to have at least the following softwares installed
     * Salesforce Package.xml Generator Extension for VS Code;
     * SF Package.xml Formatter Extension for VS Code;
 
-<!-- 
-## CI/CD Process
-
-Let's agree, a successful project needs to follow some successful strategies, like a simple CI/CD process you can see on this video:
-
-[![Devops - Deploying and validating classes in subfolders](images/subFolderClassesTumbnail-ptBR.png)](https://youtu.be/oqccLAu8Axw)
-
-### Kindly reminder - A summary about it
-
-After understand all the things shown in our previous video related with CI/CD process, and also available on that repository, you need to remember these steps for all development process:
-
-1. Get a ticket to work (DEV-123);
-1. Create the branch based on develop branch and name it based on the ticket - feature/DEV-123;
-1. Work in that feature on your scratch org (creation details below);
-1. Create the manifest file (based on the ticket) to move through environments - manifest/package-DEV-123.xml
-1. Commit your changes
-    ```
-    git commit -am "DEV-123 Something related with your work"
-    ```    
-1. Push and create a pull request to develop branch (add your TL as reviewer);
-    * The title needs to be also based on the ticket: DEV-123 Something useful;
-    ![Pull request to CI](images/PullRequest02.png)
-    * That will trigger the action to just validate the deployment;
-    * If the deployment not perform well or the TL ask for adjustment you get back to the step 3;
-    * If everything is fine, the TL can approve and merge, triggering the real deployment on CI environment;
-1. You test your changes on CI environment;
-    * If you find out any problems, you need to get back to the step 3;
-1. After testing successfully, create a pull request to QA branch (add your TL as reviewer);
-    * Add in the pull request an evidence about your amazing work;
-    ![Pull request to QA](images/PullRequest01.png)
-    * If the deployment not perform well or the TL ask for adjustment you get back to the step 3;
-    * If everything is fine, the TL can approve and merge, triggering the real deployment on QA environment; 
--->
-
 ## Setup
 
 ### Community List update
@@ -193,37 +159,6 @@ The script will stop on the same place before, but now, is the second time you a
 And the process will continue exactly in the same way for no windows environmet.
 
 Due to that, the same way you have in [No windows environment](#no-windows-environment), after some executions, the script will stop and will tell you to upload the CMS images, so [see the CMS configuration](#cms-configuration), and continue doing the job.
-
-<!-- 
-### Data loading
-
-The data loading up to here (categories, products, etc) is just based on the samples... 
-But we already have an useful template in hour [CSV folder](./scripts/csv/b2bAccDesaProductVariationColorSize.csv), that you can upload as [shown in sample](https://wearesolu.atlassian.net/wiki/spaces/SFP/pages/147128339/Sample+videos) 
-
-
-After do this upload, to remove the products that don't have related variations, just run the commands below in the Developer Console:
-
-1. Delete the products
-
-    SELECT Id, Name 
-    FROM Product2 
-    WHERE ProductClass = 'VariationParent'
-    AND   Id NOT IN (SELECT VariantParentId FROM ProductAttribute)
-
-And delete the results
-
-
-2. Delete orphan product category relation ship
-
-    SELECT Id, Name, ProductCategoryId, ProductId, CatalogId, ProductToCategory 
-    FROM ProductCategoryProduct
-    WHERE ProductId NOT IN (SELECT Id FROM Product2 )
-
-And delete the results
-
-## Manual steps
-
--->
 
 ### Refreshed Commerce App
 
