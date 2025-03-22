@@ -1,0 +1,61 @@
+{
+  "cliente": "632382",
+  "areaVentas": [
+    {
+      "org_venta": "1600",
+      "canal": "02",
+      "sector": "08",
+      "productos": [
+        {
+          "sku": "103865",
+          "centro": "1240",
+          "precios" : {
+            "base": 990585,
+            "final": 960867,
+            "descuento": 3.10,
+            "moneda": "USD"
+          },
+          "estado" : {
+            "codigo": "",
+            "descripcion": ""
+          }
+        }
+      ]
+    },
+    {
+      "org_venta": "1200",
+      "canal": "02",
+      "sector": "01",
+      "productos": [
+        {
+          "sku": "190004",
+          "centro": "1240",
+          "precios" : {
+            "base": 0.0,
+            "final": 0.0,
+            "descuento" : 0.0,
+            "moneda": ""
+          },
+          "estado" : {
+            "codigo": "4",
+            "descripcion": "Sku sin precio"
+          }
+        },
+        {
+          "sku": "123456",
+          "centro": "1240",
+          "precios" : {
+            "base": 990585,
+            "final": 960867,
+            "descuento": 3.10,
+            "moneda": "USD"
+          },
+          "estado" : {
+            "codigo": "",
+            "descripcion": ""
+          }
+        }
+      ]
+    }
+  ]
+}

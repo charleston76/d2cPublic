@@ -1,0 +1,22 @@
+{
+  "type" : "sfdc_cms__view",
+  "title" : "Order Summary List",
+  "contentBody" : {
+    "component" : {
+      "children" : [ {
+        "attributes" : {
+          "dxpStyle" : {
+            "padding" : {
+              "bottom" : "0.5rem",
+              "left" : "0.75rem",
+              "right" : "0.75rem",
+              "top" : "0.5rem"
+            }
+          }
+        },
+        "id" : "43b2f2d5-bad4-4cd1-8663-06b8f4b688c6"
+      } ]
+    }
+  },
+  "urlName" : "order-summary-list"
+}

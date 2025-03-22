@@ -1,0 +1,42 @@
+{
+    "orgName": "d2cLightning B2B Company",
+    "edition": "Developer",
+    "country": "US",  
+    "features": [ 
+        "PersonAccounts",
+        "Communities", 
+        "B2BCommerce", 
+        "OrderManagement", 
+        "EnableSetPasswordInApi"
+    ],
+    "settings": {
+        "lightningExperienceSettings": {
+            "enableS1DesktopEnabled": true
+        },
+        "mobileSettings": {
+            "enableS1EncryptedStoragePref2": false
+          },
+        "experienceBundleSettings": {
+            "enableExperienceBundleMetadata": true
+        },
+        "communitiesSettings": {
+            "enableNetworksEnabled": true,
+            "enableOotbProfExtUserOpsEnable": true
+        },
+        "orderManagementSettings": {
+            "enableOrderManagement": true
+        },
+        "orderSettings": {
+            "enableOrders": true,
+            "enableEnhancedCommerceOrders": true,
+            "enableOptionalPricebook": true,
+            "enableNegativeQuantity" : true,
+            "enableOrderEvents" : false,
+            "enableReductionOrders" : true,
+            "enableZeroQuantity" : true
+        },
+        "commerceSettings": {
+          "commerceEnabled": true
+        }
+    }
+}

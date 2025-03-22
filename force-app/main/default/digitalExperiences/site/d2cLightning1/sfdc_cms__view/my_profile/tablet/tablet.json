@@ -1,0 +1,46 @@
+{
+  "type" : "sfdc_cms__view",
+  "title" : "My Profile",
+  "contentBody" : {
+    "component" : {
+      "children" : [ {
+        "attributes" : {
+          "dxpStyle" : {
+            "padding" : {
+              "bottom" : "0.5rem",
+              "left" : "0.75rem",
+              "right" : "0.75rem",
+              "top" : "0.5rem"
+            }
+          }
+        },
+        "id" : "0586bc2b-8e87-4179-9f67-ca5b25129159"
+      }, {
+        "attributes" : {
+          "dxpStyle" : {
+            "padding" : {
+              "bottom" : "0.5rem",
+              "left" : "0.75rem",
+              "right" : "0.75rem",
+              "top" : "0.5rem"
+            }
+          }
+        },
+        "id" : "65365c2f-b8d8-4926-97e7-76c5b6eb1c60"
+      }, {
+        "attributes" : {
+          "dxpStyle" : {
+            "padding" : {
+              "bottom" : "0.5rem",
+              "left" : "0.75rem",
+              "right" : "0.75rem",
+              "top" : "0.5rem"
+            }
+          }
+        },
+        "id" : "ded0866a-f6d9-48d3-928b-ba75ccae8374"
+      } ]
+    }
+  },
+  "urlName" : "my-profile"
+}

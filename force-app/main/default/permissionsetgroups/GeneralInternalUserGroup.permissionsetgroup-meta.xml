@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<PermissionSetGroup xmlns="http://soap.sforce.com/2006/04/metadata">
+    <description>Permission set group used to assign all permission sets to internal users</description>
+    <hasActivationRequired>false</hasActivationRequired>
+    <label>Internal User Group</label>
+    <permissionSets>GeneralInternalUser</permissionSets>
+    <status>Updated</status>
+</PermissionSetGroup>

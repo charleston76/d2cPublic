@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>ShippingType__c</fullName>
+    <externalId>false</externalId>
+    <fieldManageability>SubscriberControlled</fieldManageability>
+    <label>Shipping Type</label>
+    <required>false</required>
+    <type>Picklist</type>
+    <valueSet>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Percent Calculation</fullName>
+                <default>true</default>
+                <label>Percent Calculation</label>
+            </value>
+            <value>
+                <fullName>Additional Option</fullName>
+                <default>false</default>
+                <label>Additional Option</label>
+            </value>
+            <value>
+                <fullName>Amount to Free Shipping</fullName>
+                <default>false</default>
+                <label>Amount to Free Shipping</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

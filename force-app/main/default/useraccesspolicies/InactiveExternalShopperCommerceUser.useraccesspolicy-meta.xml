@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<UserAccessPolicy xmlns="http://soap.sforce.com/2006/04/metadata">
+    <booleanFilter>1 AND 2</booleanFilter>
+    <description>Revoke the external permission set group access to active users</description>
+    <masterLabel>Inactive  External Shopper Commerce User</masterLabel>
+    <order>3</order>
+    <status>Active</status>
+    <triggerType>Update</triggerType>
+    <userAccessPolicyActions>
+        <action>Revoke</action>
+        <target>GeneralExternalShopperUserGroup</target>
+        <type>PermissionSetGroup</type>
+    </userAccessPolicyActions>
+    <userAccessPolicyFilters>
+        <columnName>IsActive</columnName>
+        <operation>equalsIgnoreCase</operation>
+        <sortOrder>2</sortOrder>
+        <target>User</target>
+        <type>User</type>
+        <value>false</value>
+    </userAccessPolicyFilters>
+    <userAccessPolicyFilters>
+        <operation>in</operation>
+        <sortOrder>1</sortOrder>
+        <target>shopper profile</target>
+        <type>Profile</type>
+    </userAccessPolicyFilters>
+</UserAccessPolicy>

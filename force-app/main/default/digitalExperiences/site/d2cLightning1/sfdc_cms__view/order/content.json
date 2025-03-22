@@ -1,0 +1,72 @@
+{
+  "type" : "sfdc_cms__view",
+  "title" : "Order",
+  "contentBody" : {
+    "component" : {
+      "children" : [ {
+        "children" : [ {
+          "attributes" : {
+            "backgroundImageConfig" : "",
+            "backgroundImageOverlay" : "rgba(0,0,0,0)",
+            "componentSpacerSize" : "",
+            "dxpStyle" : { },
+            "layoutDirectionDesktop" : "row",
+            "layoutDirectionMobile" : "column",
+            "layoutDirectionTablet" : "column",
+            "maxContentWidth" : "",
+            "sectionColumnGutterWidth" : "",
+            "sectionConfig" : "{\"UUID\":\"1e917bc0-8ee0-4509-b1fc-49f8deab9aaf\",\"columns\":[{\"UUID\":\"1a626e86-3d7f-4798-accf-af6b15d6cd43\",\"columnName\":\"Column 1\",\"columnKey\":\"col1\",\"columnWidth\":\"12\",\"seedComponents\":null}]}",
+            "sectionMinHeight" : "",
+            "sectionVerticalAlign" : "flex-start"
+          },
+          "children" : [ {
+            "children" : [ {
+              "attributes" : {
+                "bodyText" : "We will send an email with your confirmation number and receipt shortly.",
+                "buttonText" : "Continue Shopping",
+                "confirmationNumberText" : "Confirmation Number",
+                "dxpStyle" : { },
+                "headerText" : "Thank you for your order!"
+              },
+              "definition" : "commerce_unified_checkout:orderConfirmation",
+              "id" : "1b99b45a-9082-45fd-9434-6946724caffd",
+              "type" : "component"
+            } ],
+            "id" : "1a626e86-3d7f-4798-accf-af6b15d6cd43",
+            "name" : "col1",
+            "title" : "Column 1",
+            "type" : "region"
+          } ],
+          "definition" : "community_layout:section",
+          "id" : "1e917bc0-8ee0-4509-b1fc-49f8deab9aaf",
+          "type" : "component"
+        } ],
+        "id" : "0179d177-6285-433a-8f12-9433fbc7c615",
+        "name" : "content",
+        "title" : "Content",
+        "type" : "region"
+      }, {
+        "children" : [ {
+          "attributes" : {
+            "dxpStyle" : { },
+            "recordId" : "{!recordId}"
+          },
+          "definition" : "community_builder:seoAssistant",
+          "id" : "71bbefb4-e4db-400a-ab1c-c5297832a50e",
+          "type" : "component"
+        } ],
+        "id" : "633bde5e-9ce9-48e1-b0a6-dd1f9b55317a",
+        "name" : "sfdcHiddenRegion",
+        "title" : "sfdcHiddenRegion",
+        "type" : "region"
+      } ],
+      "definition" : "community_layout:sldsFlexibleLayout",
+      "id" : "e809771a-4102-43a7-9171-6bcdb9b1d675",
+      "type" : "component"
+    },
+    "dataProviders" : [ ],
+    "themeLayoutType" : "Inner",
+    "viewType" : "order"
+  },
+  "urlName" : "order"
+}

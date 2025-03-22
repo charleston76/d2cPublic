@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<DigitalExperienceConfig xmlns="http://soap.sforce.com/2006/04/metadata">
+    <label>d2cLightning</label>
+    <site>
+        <urlPathPrefix>d2cLightning</urlPathPrefix>
+    </site>
+    <space>site/d2cLightning1</space>
+</DigitalExperienceConfig>

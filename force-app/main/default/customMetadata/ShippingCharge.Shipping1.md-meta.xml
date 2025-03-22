@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomMetadata xmlns="http://soap.sforce.com/2006/04/metadata" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+    <label>Shipping 1</label>
+    <protected>false</protected>
+    <values>
+        <field>AdditionalDescription__c</field>
+        <value xsi:nil="true"/>
+    </values>
+    <values>
+        <field>AdditionalTitle__c</field>
+        <value xsi:nil="true"/>
+    </values>
+    <values>
+        <field>LabelToShow__c</field>
+        <value xsi:type="xsd:string">Send to home</value>
+    </values>
+    <values>
+        <field>ShippingChargeValue__c</field>
+        <value xsi:type="xsd:double">0.028</value>
+    </values>
+    <values>
+        <field>ShippingType__c</field>
+        <value xsi:type="xsd:string">Percent Calculation</value>
+    </values>
+    <values>
+        <field>isActive__c</field>
+        <value xsi:type="xsd:boolean">true</value>
+    </values>
+</CustomMetadata>

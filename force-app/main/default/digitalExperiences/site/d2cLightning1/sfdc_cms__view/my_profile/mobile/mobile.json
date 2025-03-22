@@ -1,0 +1,15 @@
+{
+  "type" : "sfdc_cms__view",
+  "title" : "My Profile",
+  "contentBody" : {
+    "component" : {
+      "children" : [ {
+        "attributes" : {
+          "textDisplayInfo" : "{\"headingTag\": \"h2\", \"textStyle\": \"heading-medium\"}"
+        },
+        "id" : "1d96caa7-0c7d-4e62-9075-2e54b14b8ef8"
+      } ]
+    }
+  },
+  "urlName" : "my-profile"
+}
