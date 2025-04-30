@@ -57,7 +57,8 @@ echo_attention "Creating the $scratchOrgName scratch org with $scratchOrgDuratio
 echo_attention "That will be created following the $templateType template"
 echo_attention "That can take few seconds to a couple minutes, please, be patient."
 # SF_ORG_API_VERSION=61.0 sf org create scratch -f config/project-scratch-def.json -a $scratchOrgName -y $scratchOrgDuration --release preview
-SF_ORG_API_VERSION=62.0 sf org create scratch -f config/project-scratch-def.json -a $scratchOrgName -y $scratchOrgDuration 
+# SF_ORG_API_VERSION=62.0 sf org create scratch -f config/project-scratch-def.json -a $scratchOrgName -y $scratchOrgDuration 
+SF_ORG_API_VERSION=63.0 sf org create scratch -f config/project-scratch-def.json -a $scratchOrgName -y $scratchOrgDuration 
 
 sf config set org-capitalize-record-types=true -g
 
